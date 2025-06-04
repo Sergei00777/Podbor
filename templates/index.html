@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avto Fact | Профессиональный подбор авто в Иркутске</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com"  crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- Header -->
+<header class="header">
+    <div class="container">
+        <div class="header-inner">
+            <div class="logo" aria-label="Логотип Avto Fact">
+                <span class="logo-icon"><i class="fas fa-car"></i></span>
+                <div>
+                    <h1>AVTO FACT</h1>
+                    <p>Иркутск</p>
+                </div>
+            </div>
+
+            <nav class="nav" role="navigation" aria-label="Основное меню">
+                <ul>
+                    <li><a href="#selection" class="nav-link"><i class="fas fa-key"></i> Подбор под ключ</a></li>
+                    <li><a href="#diagnostics" class="nav-link"><i class="fas fa-tools"></i> Диагностика</a></li>
+                    <li><a href="#expert" class="nav-link"><i class="fas fa-user-tie"></i> Эксперт</a></li>
+                    <li><a href="#pricing" class="nav-link"><i class="fas fa-tag"></i> Цены</a></li>
+                    <li><a href="#contacts" class="nav-link"><i class="fas fa-map-marker-alt"></i> Контакты</a></li>
+                </ul>
+            </nav>
+
+            <button class="burger" aria-label="Открыть меню">
+                <span></span>
+            </button>
+        </div>
+    </div>
+</header>
+
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-overlay"></div>
+    <div class="container">
+        <div class="hero-content">
+            <h2 class="hero-title">Профессиональный подбор авто в Иркутске</h2>
+            <p class="hero-subtitle">Гарантия юридической чистоты и технической исправности</p>
+            <div class="hero-buttons">
+                <a href="#selection" class="btn btn-primary">Узнать больше</a>
+                <a href="#contacts" class="btn btn-secondary">Бесплатная консультация</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Services Section -->
+<section class="section services" id="selection">
+    <div class="container">
+        <h2 class="section-title">Наши услуги</h2>
+        <p class="section-subtitle">Полный комплекс услуг для автолюбителей</p>
+
+        <div class="services-grid">
+
+            <!-- Подбор под ключ -->
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-key"></i>
+                </div>
+                <h3>Подбор под ключ</h3>
+                <p>Полный цикл от поиска до оформления документов</p>
+                <a href="{{ url_for('selection') }}" class="service-link">Подробнее <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <!-- Выездная диагностика -->
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-tools"></i>
+                </div>
+                <h3>Выездная диагностика</h3>
+                <p>Проверка авто на месте с профессиональным оборудованием</p>
+                <a href="{{ url_for('diagnostics') }}" class="service-link">Подробнее <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <!-- Эксперт на день -->
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-user-tie"></i>
+                </div>
+                <h3>Эксперт на день</h3>
+                <p>Сопровождение при осмотре нескольких авто</p>
+                <a href="#" class="service-link">Подробнее <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <!-- Импорт автомобилей -->
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-car-side"></i>
+                </div>
+                <h3>Импорт автомобилей</h3>
+                <p>Подбор и доставка авто из-за рубежа</p>
+                <a href="#" class="service-link">Подробнее <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- About Section -->
+<section class="section about" id="about">
+    <div class="container">
+        <div class="about-content">
+            <div class="about-text">
+                <h2 class="section-title">Avto Fact.</h2>
+                <p>Заказать автоподбор — выход для вас, если:</p>
+
+                <ul class="features-list">
+                    <li><i class="fas fa-check-circle"></i> Вам не хватает времени на самостоятельный поиск авто</li>
+                    <li><i class="fas fa-check-circle"></i> Вы начинающий автолюбитель</li>
+                    <li><i class="fas fa-check-circle"></i> Вы не хотите общаться с продавцами, салонами и перекупщиками</li>
+                    <li><i class="fas fa-check-circle"></i> Вы не уверены, что сможете грамотно провести диагностику автомобиля</li>
+                    <li><i class="fas fa-check-circle"></i> Вы хотите купить автомобиль без юридических проблем и ограничений</li>
+                    <li><i class="fas fa-check-circle"></i> Вы стремитесь найти авто определенной модели в наилучшем состоянии</li>
+                    <li><i class="fas fa-check-circle"></i> Или вы не уверены, какой именно автомобиль вам нужен, и не готовы разбираться в рынке</li>
+                </ul>
+            </div>
+
+            <div class="about-image">
+                <div class="image-frame">
+                    <img src="https://images.unsplash.com/photo-1489824904134-891ab64532f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+                         alt="Наша команда специалистов по подбору автомобилей">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta">
+    <div class="container">
+        <div class="cta-content">
+            <h2>Готовы найти идеальное авто?</h2>
+            <p>Оставьте заявку и получите бесплатную консультацию</p>
+            <a href="#contacts" class="btn btn-white">Оставить заявку</a>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer" id="contacts">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h3>Avto Fact</h3>
+                <p>Профессиональный подбор автомобилей с пробегом в Иркутске</p>
+                <div class="social-links" aria-label="Социальные сети">
+                    <a href="#"><i class="fab fa-vk" aria-hidden="true"></i><span class="sr-only">ВКонтакте</span></a>
+                    <a href="#"><i class="fab fa-telegram" aria-hidden="true"></i><span class="sr-only">Telegram</span></a>
+                    <a href="#"><i class="fab fa-whatsapp" aria-hidden="true"></i><span class="sr-only">WhatsApp</span></a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h3>Контакты</h3>
+                <ul class="contact-list">
+                    <li><i class="fas fa-map-marker-alt" aria-hidden="true"></i> г. Иркутск, ул. Автоэкспертов, 15</li>
+                    <li><i class="fas fa-phone" aria-hidden="true"></i> +7 (3952) 123-456</li>
+                    <li><i class="fas fa-envelope" aria-hidden="true"></i> info@avtofact.ru</li>
+                    <li><i class="fas fa-clock" aria-hidden="true"></i> Пн-Пт: 9:00 - 19:00</li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Навигация</h3>
+                <ul class="footer-nav">
+                    <li><a href="#selection">Услуги</a></li>
+                    <li><a href="#pricing">Цены</a></li>
+                    <li><a href="#about">О компании</a></li>
+                    <li><a href="#contacts">Контакты</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2020 Avto Fact. Все права защищены.</p>
+        </div>
+    </div>
+</footer>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+</html>

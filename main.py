@@ -24,7 +24,11 @@ def diagnostics():
 
 @app.route('/expert')
 def expert():
-    return render_template('expert.html')  # Страница выездной диагностики
+    return render_template('expert.html')  # Страница эксперта диагностики
+
+@app.route('/expert007')
+def expert007():
+    return render_template('expert007.html')  # Страница эксперта о себе
 
 if __name__ == '__main__':
     app.run(debug=True)

@@ -29,6 +29,14 @@ def expert():
 @app.route('/expert007')
 def expert007():
     return render_template('expert007.html')  # Страница эксперта о себе
+@app.route('/reviews')
+def reviews():
+    return render_template('reviews.html')  # Страница эксперта о себе
+
+@app.route('/pricing')
+def pricing():
+    return render_template('pricing.html')  # Страница эксперта о себе
+
 
 if __name__ == '__main__':
     app.run(debug=True)

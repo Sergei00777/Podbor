@@ -22,5 +22,9 @@ def contact():
 def diagnostics():
     return render_template('diagnostics.html')  # Страница выездной диагностики
 
+@app.route('/expert')
+def expert():
+    return render_template('expert.html')  # Страница выездной диагностики
+
 if __name__ == '__main__':
     app.run(debug=True)

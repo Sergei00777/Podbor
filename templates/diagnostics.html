@@ -9,10 +9,43 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
+
+    <!-- Шапка сайта -->
     <header class="header">
-        <!-- Здесь будет шапка сайта -->
+        <div class="container">
+            <div class="header-inner">
+
+                <!-- Логотип с ссылкой на главную -->
+                <a href="{{ url_for('index') }}" class="logo" aria-label="Перейти на главную страницу">
+                    <span class="logo-icon"><i class="fas fa-car"></i></span>
+                    <div>
+                        <h1>AVTO FACT</h1>
+                        <p>Иркутск</p>
+                    </div>
+                </a>
+
+                <!-- Навигационное меню -->
+                <nav class="nav" role="navigation" aria-label="Основное меню">
+                    <ul>
+                        <li><a href="{{ url_for('index') }}" class="nav-link"><i class="fas fa-home"></i> Главная</a></li>
+                        <li><a href="#selection" class="nav-link"><i class="fas fa-key"></i> Подбор под ключ</a></li>
+                        <li><a href="#diagnostics" class="nav-link"><i class="fas fa-tools"></i> Диагностика</a></li>
+                        <li><a href="#expert" class="nav-link"><i class="fas fa-user-tie"></i> Эксперт</a></li>
+                        <li><a href="#pricing" class="nav-link"><i class="fas fa-tag"></i> Цены</a></li>
+                        <li><a href="#contacts" class="nav-link"><i class="fas fa-map-marker-alt"></i> Контакты</a></li>
+                    </ul>
+                </nav>
+
+                <!-- Бургер-меню для мобильных устройств -->
+                <button class="burger" aria-label="Открыть меню навигации">
+                    <span></span>
+                </button>
+
+            </div>
+        </div>
     </header>
 
+    <!-- Основной контент -->
     <main class="main">
         <section class="diagnostics-section">
             <div class="container">
@@ -68,13 +101,18 @@
                 <p>Осмотр двигателя при помощи эндоскопа возможен только по предварительному согласованию и не входит в стоимость диагностики.</p>
                 <p>Если вы отменили выездную диагностику позднее, чем за 2 часа до назначенного времени, или она не состоялась по независящим от нас причинам (например, продавец не приехал или отказался предоставить автомобиль), мы зафиксируем ложный выезд. В этом случае вы оплачиваете 50% от стоимости диагностики.</p>
 
-                <a href="#" class="btn btn-primary">Заказать диагностику</a>
+                <!-- Ссылка на заказ диагностики -->
+                <a href="/order" class="btn btn-primary">Заказать диагностику</a>
             </div>
         </section>
     </main>
 
+    <!-- Подвал сайта -->
     <footer class="footer">
-        <!-- Здесь будет подвал сайта -->
+        <div class="container">
+            &copy; 2020 AVTO FACT — Все права защищены.
+        </div>
     </footer>
+
 </body>
 </html>

@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Эксперт на день</title>
+
+    <!-- Стили -->
+    <style>
+        :root {
+            --primary: #3182ce; /* Светло-синий */
+            --primary-dark: #2b6cb0;
+            --secondary: #fc8181; /* Лёгкий красный для акцентов */
+            --background: #1a202c; /* Основной тёмный фон */
+            --card-bg: #2d3748; /* Цвет фона карточек */
+            --text-light: #f7fafc; /* Светлый текст */
+            --text-muted: #cbd5e0; /* Приглушённый текст */
+            --gray: #4a5568;
+            --border: #4a5568;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: var(--text-muted);
+            background-color: var(--background);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Карточка услуги */
+        .service-card {
+            background: var(--card-bg);
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            padding: 30px;
+            margin: 20px 0;
+            transition: transform 0.3s ease;
+            color: var(--text-light);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-title {
+            color: var(--primary);
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .service-description {
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+
+        .btn:hover {
+            background: var(--primary-dark);
+        }
+
+        /* Модальное окно */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            overflow-y: auto;
+        }
+
+        .modal-content {
+            background: var(--card-bg);
+            margin: 5% auto;
+            padding: 30px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 800px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+            animation: modalFadeIn 0.3s;
+            color: var(--text-light);
+        }
+
+        @keyframes modalFadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .close-btn {
+            color: var(--text-muted);
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close-btn:hover {
+            color: var(--secondary);
+        }
+
+        .modal-title {
+            color: var(--primary);
+            font-size: 28px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .steps-container {
+            margin-bottom: 30px;
+        }
+
+        .step {
+            margin-bottom: 15px;
+            padding-left: 25px;
+            position: relative;
+            color: var(--text-muted);
+        }
+
+        .step:before {
+            content: "•";
+            color: var(--secondary);
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+
+        .price-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            color: var(--text-light);
+        }
+
+        .price-table th, .price-table td {
+            border: 1px solid var(--border);
+            padding: 12px;
+            text-align: left;
+        }
+
+        .price-table th {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .price-table tr:nth-child(even) {
+            background-color: var(--card-bg);
+        }
+
+        .section-title {
+            color: var(--primary);
+            font-size: 22px;
+            margin: 25px 0 15px;
+        }
+
+        .feature-box {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border: 1px solid var(--border);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Шапка сайта -->
+    <header class="header">
+        <div class="container">
+            <div class="header-inner">
+
+                <!-- Логотип с ссылкой на главную -->
+                <a href="{{ url_for('index') }}" class="logo" aria-label="Перейти на главную страницу">
+                    <span class="logo-icon"><i class="fas fa-car"></i></span>
+                    <div>
+                        <h1>AVTO FACT</h1>
+
+                    </div>
+                </a>
+                <!-- Бургер-меню для мобильных устройств -->
+                <button class="burger" aria-label="Открыть меню навигации">
+                    <span></span>
+                </button>
+
+            </div>
+        </div>
+    </header>
+
+    <!-- Основной контент -->
+    <main class="main">
+        <div class="container">
+            <!-- Карточка услуги -->
+            <div class="service-card">
+                <h2 class="service-title">Авто Эксперт на день *С гарантией*</h2>
+                <p class="service-description">Наш специалист диагностирует несколько выбранных вами автомобилей, проводит полную диагностику: проверяет юридическую чистоту, оценивает реальное техническое состояние и помогает снизить цену.
+                В результате вы получаете объективную информацию и выбираете наилучший вариант, сэкономив время, деньги и нервы.</p>
+                <p class="service-description">Сопровождение при осмотре нескольких авто</p>
+                <a href="#" class="btn" id="detailsBtn">Подробнее →</a>
+            </div>
+        </div>
+
+        <!-- Модальное окно -->
+        <div id="serviceModal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn">&times;</span>
+                <h2 class="modal-title">ЭКСПЕРТ НА ДЕНЬ</h2>
+                <p>«Эксперт на день» — это профессиональная проверка сразу нескольких автомобилей с пробегом в один день.</p>
+                <div class="feature-box">
+                    <p>Наш специалист диагностирует несколько выбранных автомобилей, проводит полную проверку, оценивает техническое состояние и помогает принять взвешенное решение. В результате вы получаете объективную оценку, экономя время, деньги и нервы.</p>
+                </div>
+                <h3 class="section-title">ПОЧЕМУ СТОИТ ДОВЕРИТЬ ВЫБОР ПРОФЕССИОНАЛЬНОМУ СПЕЦИАЛИСТУ?</h3>
+                <ul>
+                    <li>Экономия времени — осмотр нескольких авто за один день</li>
+                    <li>Профессиональная оценка реального состояния автомобиля</li>
+                    <li>Выявление скрытых дефектов и проблем</li>
+                    <li>Помощь в торге с продавцом</li>
+                    <li>Юридическая проверка документов</li>
+                </ul>
+                <h3 class="section-title">КАК ЗАКАЗАТЬ УСЛУГУ «ЭКСПЕРТ НА ДЕНЬ»?</h3>
+                <div class="steps-container">
+                    <div class="step">Оставьте заявку на сайте</div>
+                    <div class="step">Получите консультацию эксперта</div>
+                    <div class="step">Запишитесь на день и время, удобные для Вас</div>
+                </div>
+                <h3 class="section-title">ЦЕНА УСЛУГИ «ЭКСПЕРТ НА ДЕНЬ»</h3>
+                <table class="price-table">
+                    <tr>
+                        <th>Стоимость автомобиля</th>
+                        <th>Цена услуги</th>
+                    </tr>
+                    <tr>
+                        <td>До 1 млн</td>
+                        <td>9 500 ₽</td>
+                    </tr>
+                    <tr>
+                        <td>От 1 млн до 1.5 млн</td>
+                        <td>14 000 ₽</td>
+                    </tr>
+                    <tr>
+                        <td>От 1.5 млн до 2.0 млн</td>
+                        <td>20 000 ₽</td>
+                    </tr>
+                    <tr>
+                        <td>От 2.0 млн до 2.5 млн</td>
+                        <td>24 500 ₽</td>
+                    </tr>
+                    <tr>
+                        <td>От 2.5 млн до 3.0 млн</td>
+                        <td>30 000 ₽</td>
+                    </tr>
+                    <tr>
+                        <td>От 3.0 млн до 3.5 млн</td>
+                        <td>35 500 ₽</td>
+                    </tr>
+                    <tr>
+                        <td>От 3.5 млн до 4.0 млн</td>
+                        <td>40 000 ₽</td>
+                    </tr>
+                    <tr>
+                        <td>От 4.0 млн до 4.5 млн</td>
+                        <td>45 500 ₽</td>
+                    </tr>
+                    <tr>
+                        <td>От 5.0 млн до 10.0 млн</td>
+                        <td>80 500 ₽</td>
+                    </tr>
+                </table>
+                <h3 class="section-title">МОНИТОРИНГ РЫНКА</h3>
+                <p>Это дополнительная услуга к услуге «Эксперт на день». Услуга предоставляется только для автомобилей не старше 1999 года.</p>
+                <h4>Как она работает:</h4>
+                <ul>
+                    <li>Мы выбираем для вас актуальные объявления</li>
+                    <li>Осуществляем предварительный отбор и проверку</li>
+                    <li>Проверяем объявления по базам данных</li>
+                </ul>
+                <div class="feature-box">
+                    <p>Как итог, вы получаете подборку из реальных подходящих вам объявлений, и при проведении «Эксперт на день» мы не тратим время на "пустые" объявления.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Подвал сайта -->
+    <footer class="footer">
+        <div class="container" style="text-align: center; padding: 20px;">
+            &copy; 2020 AVTO FACT — Все права защищены.
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Открытие модального окна
+        document.getElementById('detailsBtn').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('serviceModal').style.display = 'block';
+            document.body.style.overflow = 'hidden'; // Блокировка прокрутки фона
+        });
+
+        // Закрытие модального окна
+        document.querySelector('.close-btn').addEventListener('click', function() {
+            document.getElementById('serviceModal').style.display = 'none';
+            document.body.style.overflow = 'auto'; // Восстановление прокрутки
+        });
+
+        // Закрытие при клике вне окна
+        window.addEventListener('click', function(e) {
+            if (e.target == document.getElementById('serviceModal')) {
+                document.getElementById('serviceModal').style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+    </script>
+
+</body>
+</html>

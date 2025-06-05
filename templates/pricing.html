@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Цены | AVTO FACT</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        .article {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .article h1 {
+            color: #2a4365;
+            font-size: 2.2em;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .price-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: #1a202c;
+            color: white;
+        }
+        .price-table th,
+        .price-table td {
+            padding: 15px;
+            border-bottom: 1px solid #2d3748;
+            text-align: center;
+        }
+        .price-table thead th {
+            background-color: #2a4365;
+        }
+        .price-table tbody tr:nth-child(even) {
+            background-color: #2d3748;
+        }
+        .highlight-box {
+            background-color: #1a202c;
+            border-left: 4px solid #fc8181;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .contact-info {
+            background-color: #2a4365;
+            color: white;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 30px;
+        }
+        .contact-info i {
+            margin-right: 10px;
+            color: #fff;
+        }
+        .social-icons a {
+            margin-right: 15px;
+            text-decoration: none;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Шапка сайта -->
+<header class="header">
+    <div class="container">
+        <div class="header-inner">
+            <!-- Логотип с ссылкой на главную -->
+            <a href="{{ url_for('index') }}" class="logo" aria-label="Перейти на главную страницу">
+                <span class="logo-icon"><i class="fas fa-car"></i></span>
+                <div>
+                    <h1>AVTO FACT</h1>
+                    <p>Иркутск</p>
+                </div>
+            </a>
+            <!-- Навигационное меню -->
+            <nav class="nav" role="navigation" aria-label="Основное меню">
+                <ul>
+                    <li><a href="{{ url_for('index') }}" class="nav-link"><i class="fas fa-home"></i> Главная</a></li>
+                    <li><a href="#selection" class="nav-link"><i class="fas fa-key"></i> Подбор под ключ</a></li>
+                    <li><a href="#reviews" class="nav-link"><i class="fas fa-tools"></i> Отзывы</a></li>
+                    <li><a href="#expert007" class="nav-link"><i class="fas fa-user-tie"></i> Эксперт</a></li>
+                    <li><a href="#pricing" class="nav-link"><i class="fas fa-tag"></i> Цены</a></li>
+                    <li><a href="#contacts" class="nav-link"><i class="fas fa-map-marker-alt"></i> Контакты</a></li>
+                </ul>
+            </nav>
+            <!-- Бургер-меню -->
+            <button class="burger" aria-label="Открыть меню навигации">
+                <span></span>
+            </button>
+        </div>
+    </div>
+</header>
+
+<!-- Основной контент -->
+<main class="main">
+    <section class="article">
+        <h1>-</h1>
+        <p><em>Актуальные цены на услуги — на 2025 года</em></p>
+
+        <p>Стоимость зависит от бюджета автомобиля:</p>
+
+        <table class="price-table">
+            <thead>
+                <tr>
+                    <th>Бюджет автомобиля</th>
+                    <th>Стоимость услуги</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>До 1.0 млн ₽</td>
+                    <td>5 000 - 15 000 ₽ ( По согласованию )</td>
+                </tr>
+                <tr>
+                    <td>1.0 млн до 1.5 млн ₽</td>
+                    <td>15 000 - 25 000 ₽ ( По согласованию )</td>
+                </tr>
+                <tr>
+                    <td>1.5 млн до 2.0 млн ₽</td>
+                    <td>25 000 - 35 000 ₽ ( По согласованию )</td>
+                </tr>
+                <tr>
+                    <td>2.0 млн до 2.5 млн ₽</td>
+                    <td>35 000 - 45 000 ₽ ( По согласованию )</td>
+                </tr>
+                <tr>
+                    <td>2.5 млн до 3.0 млн ₽</td>
+                    <td>45 000 - 55 000 ₽ ( По согласованию )</td>
+                </tr>
+                <tr>
+                    <td>3.0 млн до 3.5 млн ₽</td>
+                    <td>55 000 - 65 000 ₽ ( По согласованию )</td>
+                </tr>
+                <tr>
+                    <td>3.5 млн до 4.0 млн ₽</td>
+                    <td>65 000 - 75 000 ₽ ( По согласованию )</td>
+                </tr>
+                <tr>
+                    <td>4.0 млн до 4.5 млн ₽</td>
+                    <td>75 000 - 85 000 ₽ ( По согласованию )</td>
+                </tr>
+                <tr>
+                    <td>4.5 млн до 5.0 млн ₽</td>
+                    <td>85 000 - 95 000 ₽ ( По согласованию )</td>
+                </tr>
+                <tr>
+                    <td>Свыше 5.0 млн ₽</td>
+                    <td>По согласованию</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="highlight-box">
+            <h2>Что входит в стоимость?</h2>
+            <ul class="checklist">
+                <li><strong>Консультация</strong> – поможем выбрать подходящую модель</li>
+                <li><strong>Подбор вариантов</strong> – только проверенные продавцы и авто без скрытых проблем</li>
+                <li><strong>Выездная диагностика</strong> – профессиональная проверка на месте</li>
+                <li><strong>Проверка документов</strong> – анализ ПТС, VIN, истории владения</li>
+                <li><strong>Сопровождение сделки</strong> – помощь в оформлении и регистрации</li>
+            </ul>
+        </div>
+
+        <div class="highlight-box">
+            <h2>❗ Важно</h2>
+            <p>Цены указаны за полный цикл работы: от поиска автомобиля до оформления договора. Окончательная стоимость утверждается после предварительной консультации.</p>
+        </div>
+
+        <!-- Контакты -->
+        <div class="contact-info">
+            <h3>📞 Свяжитесь с нами:</h3>
+            <p><i class="fas fa-phone"></i> Телефон: +7 (XXX) XXX-XX-XX</p>
+            <p><i class="fas fa-globe"></i> Сайт: <a href="https://auto-fact-irk.ru"  style="color: white;">auto-fact-irk.ru</a></p>
+            <p><i class="fab fa-vk"></i> ВКонтакте: <a href="https://vk.com/auto_fact_irk"  style="color: white;">vk.com/auto_fact_irk</a></p>
+            <p style="margin-top: 15px;"><strong>Напишите нам:</strong></p>
+            <div class="social-icons">
+                <a href="https://wa.me/89041111481"  title="WhatsApp"><i class="fab fa-whatsapp" style="font-size: 24px;"></i></a>
+                <a href="tg://resolve?domain=avtofact" title="Telegram"><i class="fab fa-telegram" style="font-size: 24px;"></i></a>
+                <a href="#" title="Viber"><i class="fab fa-viber" style="font-size: 24px;"></i></a>
+            </div>
+            <p style="margin-top: 15px; font-weight: bold;"><i class="fas fa-gift"></i> P.S. Первая консультация – бесплатно!</p>
+        </div>
+    </section>
+</main>
+
+<!-- Подвал сайта -->
+<footer class="footer">
+    <div class="container" style="text-align: center; padding: 20px;">
+        &copy; 2020 AVTO FACT — Все права защищены.
+    </div>
+</footer>
+
+<script>
+    // Добавляем активный класс к текущей странице
+    document.querySelectorAll('.nav-link').forEach(link => {
+        if (link.textContent.includes('Цены')) {
+            link.classList.add('active');
+        }
+    });
+
+    // Обработчик бургер-меню
+    document.querySelector('.burger').addEventListener('click', function () {
+        this.classList.toggle('active');
+        document.querySelector('.nav').classList.toggle('active');
+    });
+</script>
+
+</body>
+</html>

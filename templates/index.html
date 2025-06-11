@@ -98,11 +98,11 @@
             <!-- Импорт автомобилей -->
             <div class="service-card">
                 <div class="service-icon">
-                    <i class="fas fa-car-side"></i>
+                    <i class="fas fa-download"></i>
                 </div>
-                <h3>Импорт автомобилей</h3>
-                <p>Подбор и доставка авто из-за рубежа</p>
-                <a href="#" class="service-link">Подробнее <i class="fas fa-arrow-right"></i></a>
+                <h3>Программы для скачивания</h3>
+                <p>Яндекс.Диск</p>
+                <a href="{{ url_for('disk') }}" class="service-link">Подробнее <i class="fas fa-arrow-right"></i></a>
             </div>
 
         </div>
@@ -144,11 +144,10 @@
         <div class="cta-content">
             <h2>Готовы найти идеальное авто?</h2>
             <p>Оставьте заявку и получите бесплатную консультацию</p>
-            <a href="#contacts" class="btn btn-white">Оставить заявку</a>
+            <a href="#contacts" class="btn btn-secondary">7 (924) 718-14-81</a>
         </div>
     </div>
 </section>
-
 
 
 <!-- Footer -->
@@ -168,9 +167,9 @@
             <div class="footer-col">
                 <h3>Контакты</h3>
                 <ul class="contact-list">
-                    <li><i class="fas fa-map-marker-alt" aria-hidden="true"></i> г. Иркутск, ул. Автоэкспертов, 15</li>
-                    <li><i class="fas fa-phone" aria-hidden="true"></i> +7 (3952) 123-456</li>
-                    <li><i class="fas fa-envelope" aria-hidden="true"></i> info@avtofact.ru</li>
+                    <li><i class="fas fa-map-marker-alt" aria-hidden="true"></i> г. Иркутск, ул. Автоэкспертов.</li>
+                    <li><i class="fas fa-phone" aria-hidden="true"></i> +7 (924) 718-14-81</li>
+                    <li><i class="fas fa-envelope" aria-hidden="true"></i> serpetrusenko@yandex.ru </li>
                     <li><i class="fas fa-clock" aria-hidden="true"></i> Пн-Пт: 9:00 - 19:00</li>
                 </ul>
             </div>
@@ -186,12 +185,12 @@
             </div>
         </div>
 
- <!-- Services Section -->
-<section class="section services" id="expert007">
+</html>
+<!-- Services Section -->
+<section class="services-grid" id="expert007">
     <div class="container">
-        <div class="services-grid">
-
-             <!-- Выездная диагностика -->
+        <div class="section services">
+            <!-- Выездная диагностика -->
             <div class="service-card">
                 <div class="service-icon">
                     <i class="fas fa-tools"></i>
@@ -199,54 +198,45 @@
                 <h3>Эксперт по подбору автомобилей</h3>
                 <p>Петрусенко.С.В</p>
                 <a href="{{ url_for('expert007') }}" class="service-link">Подробнее <i class="fas fa-arrow-right"></i></a>
-             </div>
             </div>
         </div>
     </div>
+</section>
+
+
+
 <section class="section services" id="reviews">
     <div class="container">
         <div class="services-grid">
-
             <div class="service-card">
                 <div class="service-icon">
                     <i class="fas fa-briefcase"></i>
                 </div>
-
-    <h3>Положительные отзывы о нашей работе</h3>
-    <p>ОТЗЫВЫ НАШИХ КЛИЕНТОВ</p>
-    <a href="{{ url_for('reviews') }}" class="service-link">Подробнее <i class="fas fa-briefcase"></i></a>
-
+                <h3>Положительные отзывы о нашей работе</h3>
+                <p>ОТЗЫВЫ НАШИХ КЛИЕНТОВ</p>
+                <a href="{{ url_for('reviews') }}" class="service-link">Подробнее <i class="fas fa-briefcase"></i></a>
+            </div>
+        </div>
     </div>
-</div>
+</section>
+
 <section class="section services" id="pricing">
     <div class="container">
         <div class="services-grid">
-
             <div class="service-card">
                 <div class="service-icon">
                     <i class="fas fa-wallet"></i>
                 </div>
-
-    <h3>Актуальные цены</h3>
-    <p>Cтоимость услуги зависит от бюджета</p>
-    <a href="{{ url_for('pricing') }}" class="service-link">Подробнее <i class="fas fa-wallet"></i></a>
-
-    </div>
-</div>
-
-
-
-
-            <div class="footer-bottom">
-                <p>&copy; 2020 Avto Fact. Все права защищены.</p>
+                <h3>Актуальные цены</h3>
+                <p>Cтоимость услуги зависит от бюджета</p>
+                <a href="{{ url_for('pricing') }}" class="service-link">Подробнее <i class="fas fa-wallet"></i></a>
             </div>
         </div>
-     </div>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-bottom">
+        <p>&copy; 2020 Avto Fact. Все права защищены.</p>
+    </div>
 </footer>
-
-<script src="{{ url_for('static', filename='js/script.js') }}"></script>
-
-
-
-</body>
-</html>

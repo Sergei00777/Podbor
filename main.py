@@ -37,6 +37,10 @@ def reviews():
 def pricing():
     return render_template('pricing.html')  # Страница эксперта о себе
 
+@app.route('/disk')
+def disk():
+    return render_template('disk.html')  # Страница эксперта о себе
+
 
 if __name__ == '__main__':
     app.run(debug=True)

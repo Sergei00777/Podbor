@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Услуги по выкупу авто | AVTO FACT</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #e74c3c;
+            --accent: #3498db;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --text: #333;
+            --text-light: #7f8c8d;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f9f9f9;
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--dark));
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: white;
+        }
+
+        .logo-icon {
+            font-size: 2rem;
+            margin-right: 15px;
+            color: var(--accent);
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+
+        .logo p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav li {
+            margin-left: 25px;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-link i {
+            margin-right: 8px;
+            font-size: 1.1rem;
+        }
+
+        .nav-link:hover {
+            color: var(--accent);
+        }
+
+        .burger {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1489824904134-891ab64532f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center/cover;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 40px;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2:after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 4px;
+            background: var(--accent);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-header p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+
+        .service-img {
+            height: 200px;
+            background: var(--light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--accent);
+        }
+
+        .service-content {
+            padding: 25px;
+        }
+
+        .service-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .service-content p {
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .btn:hover {
+            background: #2980b9;
+            transform: translateY(-3px);
+        }
+
+        /* CTA Section */
+        .cta {
+            background: var(--primary);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+
+        .cta p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
+        }
+
+        .whatsapp-btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background: #25D366;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 500;
+            font-size: 1.2rem;
+            transition: background 0.3s;
+            margin: 0 10px;
+        }
+
+        .whatsapp-btn i {
+            margin-right: 10px;
+        }
+
+        .whatsapp-btn:hover {
+            background: #128C7E;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 50px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+
+        .footer-column p, .footer-column a {
+            color: #bdc3c7;
+            margin-bottom: 10px;
+            display: block;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-column a:hover {
+            color: var(--accent);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #bdc3c7;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+            }
+
+            .burger {
+                display: block;
+            }
+
+            .hero {
+                padding: 80px 0;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Шапка сайта -->
+<header class="header">
+    <div class="container">
+        <div class="header-inner">
+
+            <!-- Логотип с ссылкой на главную -->
+            <a href="{{ url_for('index') }}" class="logo" aria-label="Перейти на главную страницу">
+                <span class="logo-icon"><i class="fas fa-car"></i></span>
+                <div>
+                    <h1>AVTO FACT</h1>
+                    <p>Иркутск</p>
+                </div>
+            </a>
+
+            <!-- Навигационное меню -->
+            <nav class="nav" role="navigation" aria-label="Основное меню">
+                <ul>
+                    <li><a href="{{ url_for('index') }}" class="nav-link"><i class="fas fa-home"></i> Главная</a></li>
+                    <li><a href="{{ url_for('index') }}" class="nav-link"><i class="fas fa-key"></i> Подбор под ключ</a></li>
+                    <li><a href="{{ url_for('index') }}" class="nav-link"><i class="fas fa-tools"></i> Отзывы</a></li>
+                    <li><a href="{{ url_for('index') }}" class="nav-link"><i class="fas fa-user-tie"></i> Эксперт</a></li>
+                    <li><a href="{{ url_for('index') }}" class="nav-link"><i class="fas fa-tag"></i> Цены</a></li>
+                    <li><a href="{{ url_for('index') }}" class="nav-link"><i class="fas fa-map-marker-alt"></i> Контакты</a></li>
+                </ul>
+            </nav>
+
+            <!-- Бургер-меню для мобильных устройств -->
+            <button class="burger" aria-label="Открыть меню навигации">
+                <span></span>
+            </button>
+
+        </div>
+    </div>
+</header>
+
+<!-- Hero Section -->
+<section class="hero">
+    <div class="container">
+        <h1>Профессиональный выкуп автомобилей</h1>
+        <p>Быстро, выгодно и безопасно продайте свой автомобиль по максимальной цене</p>
+        <a href="#services" class="btn">Наши услуги</a>
+    </div>
+</section>
+
+<!-- Services Section -->
+<section class="services" id="services">
+    <div class="container">
+        <div class="section-header">
+            <h2>Наши услуги</h2>
+            <p>Полный комплекс услуг для автолюбителей</p>
+        </div>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-img">
+                    <i class="fas fa-car-side"></i>
+                </div>
+                <div class="service-content">
+                    <h3>Срочный выкуп автомобилей</h3>
+                    <p>Быстро • Выгодно • Конфиденциально.</p>
+                    <a href="https://wa.me/79247181481" class="whatsapp-btn">+7 (924) 718-14-81</a>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-img">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <div class="service-content">
+                    <h3>Мгновенная сделка</h3>
+                    <p>От осмотра до оплаты — всего 1-4 часа, в г. Иркутске.</p>
+                    <a href="https://wa.me/79247181481" class="whatsapp-btn">+7 (924) 718-14-81</a>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-img">
+                    <i class="fas fa-star"></i>
+                </div>
+                <div class="service-content">
+                    <h3>Высокая оценка</h3>
+                    <p>До 85% рыночной стоимости благодаря собственному автопарку.</p>
+                    <a href="https://wa.me/79247181481" class="whatsapp-btn">+7 (924) 718-14-81</a>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-img">
+                    <i class="fas fa-file-alt"></i>
+                </div>
+                <div class="service-content">
+                    <h3>Минимум документов</h3>
+                    <p>Только паспорт и ПТС, без скрытых платежей.</p>
+                    <a href="https://wa.me/79247181481" class="whatsapp-btn">+7 (924) 718-14-81</a>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-img">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <div class="service-content">
+                    <h3>Безопасность</h3>
+                    <p>Официальный договор и прозрачные условия.</p>
+                    <a href="https://wa.me/79247181481" class="whatsapp-btn">+7 (924) 718-14-81</a>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-img">
+                    <i class="fas fa-tools"></i>
+                </div>
+                <div class="service-content">
+                    <h3>Выезд эксперта</h3>
+                    <p>В любое удобное время, даже вечером или в выходные.</p>
+                    <a href="https://wa.me/79247181481" class="whatsapp-btn">+7 (924) 718-14-81</a>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-img">
+                    <i class="fas fa-money-bill-wave"></i>
+                </div>
+                <div class="service-content">
+                    <h3>Наличные сразу</h3>
+                    <p>Полная оплата на месте в день обращения.</p>
+                    <a href="https://wa.me/79247181481" class="whatsapp-btn">+7 (924) 718-14-81</a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta">
+    <div class="container">
+        <h2>Готовы продать автомобиль сегодня?</h2>
+        <p>Свяжитесь с нами прямо сейчас для бесплатной оценки вашего автомобиля</p>
+        <a href="https://wa.me/79247181481" class="whatsapp-btn" target="_blank">
+            <i class="fab fa-whatsapp"></i> Написать в WhatsApp
+        </a>
+    </div>
+</section>
+
+<!-- Подвал сайта -->
+<!-- Подвал сайта -->
+<footer class="footer">
+    <div class="container" style="text-align: center; padding: 20px;">
+        &copy; 2020 AVTO FACT — Все права защищены.
+    </div>
+</footer>
+
+</body>
+</html>

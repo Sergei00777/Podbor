@@ -24,6 +24,7 @@
                 </div>
             </div>
 
+
             <nav class="nav" role="navigation" aria-label="Основное меню">
                 <ul>
                     <li><a href="{{ url_for('index') }}" class="nav-link"><i class="fas fa-home"></i> Главная</a></li>
@@ -50,8 +51,25 @@
             <h2 class="hero-title">Профессиональный подбор авто в Иркутске</h2>
             <p class="hero-subtitle">Гарантия юридической чистоты и технической исправности</p>
             <div class="hero-buttons">
-                <a href="#selection" class="btn btn-primary">Узнать больше</a>
-                <a href="#contacts" class="btn btn-secondary">Бесплатная консультация</a>
+
+                <a href="{{ url_for('consultation') }}" class="btn btn-secondary" style="
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: #25D366; /* Зеленый цвет WhatsApp */
+    color: #00008B  ; /* Золотой желтый цвет */
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 30px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+">Срочный выкуп автомобиля</a>
+            </div>
             </div>
         </div>
     </div>
